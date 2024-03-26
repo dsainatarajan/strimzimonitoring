@@ -1,0 +1,5 @@
+kubectl apply -f 1kafka-metrics-cluster.yaml -n kafka
+curl -s https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/release/bundle.yaml | sed -e 's/namespace: .*/namespace: kafka/' > bundle.yaml
+kubectl apply -f bundle.yaml -n kafka
+kubectl get pods -n kafka
+kubectl get svc -n kafka

@@ -1,0 +1,9 @@
+kubectl create secret generic additional-scrape-configs --from-file=prometheus-additional.yaml -n kafka
+
+kubectl apply -f 2strimzi-pod-monitor.yaml -n kafka
+kubectl apply -f 3prometheus-rules.yaml -n kafka
+kubectl apply -f 4prometheus.yaml -n kafka
+kubectl get pods -n kafka
+kubectl apply -f 5grafana.yaml -n kafka  
+
+kubectl get svc -n kafka
